@@ -1,0 +1,134 @@
+/* Global font family and background */
+.root { -fx-font-family: "Inter", "Segoe UI", "System"; -fx-background-color: #050505; }
+
+/* Page gradient */
+.page-bg {
+    -fx-background-color: linear-gradient(#050505, #0b0b0b);
+    -fx-min-width: 100%;
+    -fx-min-height: 100%;
+}
+
+/* Top nav */
+.nav-brand { -fx-text-fill: #ffb200; -fx-font-size: 20px; -fx-font-weight: 800; }
+.button.nav-item, .nav-item {
+    -fx-text-fill: rgba(255,255,255,0.9);
+    -fx-background-color: transparent;
+    -fx-font-weight: 600;
+    -fx-padding: 6 10;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+.button.nav-item:hover, .nav-item:hover { -fx-text-fill: #ffb200; -fx-background-color: rgba(255,178,0,0.04); }
+.button.nav-item:pressed, .nav-item:pressed { -fx-text-fill: #ffb200; -fx-translate-y: 1; -fx-opacity: 0.9; -fx-background-color: rgba(255,178,0,0.08); }
+
+/* Search */
+.search-box { -fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 20; -fx-padding: 6 12; }
+.top-search {
+    -fx-background-color: transparent; -fx-border-color: transparent;
+    -fx-prompt-text-fill: rgba(255,255,255,0.6); -fx-text-fill: white; -fx-pref-width: 220;
+}
+
+/* Hero */
+.hero-heading {
+    -fx-text-fill: white;
+    -fx-font-size: 44px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Playfair Display", "Serif";
+}
+.hero-sub { -fx-text-fill: rgba(255,255,255,0.75); -fx-font-size: 15px; }
+
+/* Mood chips */
+.button.mood-chip {
+    -fx-background-color: linear-gradient(#ffffff,#efefef);
+    -fx-background-radius: 26;
+    -fx-padding: 10 18;
+    -fx-text-fill: #111;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 6,0,0,2);
+}
+.button.mood-chip:hover { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 8,0,0,2); -fx-scale-x: 1.02; -fx-scale-y: 1.02; }
+.button.mood-chip:pressed { -fx-scale-x: 0.98; -fx-scale-y: 0.98; -fx-translate-y: 1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4,0,0,1); }
+.button.mood-chip.selected { -fx-background-color: linear-gradient(#ffd37a, #ffb347); -fx-text-fill: black; }
+
+/* CTAs */
+.button.btn-primary {
+    -fx-background-color: linear-gradient(#ffb347, #ff9800);
+    -fx-text-fill: black; -fx-font-weight: 800; -fx-padding: 12 22; -fx-background-radius: 8;
+}
+.button.btn-primary:hover { -fx-background-color: linear-gradient(#ffc06f, #ffa135); }
+.button.btn-primary:pressed { -fx-background-color: linear-gradient(#e6952b, #d67a00); -fx-translate-y: 1; }
+
+.button.btn-outline {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255,184,0,0.9);
+    -fx-text-fill: rgba(255,184,0,0.95);
+    -fx-border-radius: 8; -fx-padding: 10 18;
+}
+.button.btn-outline:hover { -fx-background-color: rgba(255,184,0,0.06); }
+.button.btn-outline:pressed { -fx-background-color: rgba(255,184,0,0.12); -fx-translate-y: 1; }
+
+/* Section title */
+.label.section-title { -fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: 800; }
+
+/* Poster / movie card */
+.poster-container { -fx-padding: 0; -fx-alignment: center; }
+.movie-card {
+    -fx-background-color: rgba(255,255,255,0.02);
+    -fx-padding: 8;
+    -fx-background-radius: 8;
+    -fx-alignment: center;
+    -fx-pref-width: 170;
+}
+.movie-card > ImageView { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12,0,0,6); }
+.movie-card:hover { -fx-translate-y: -6; }
+
+/* Skeleton placeholder (shows until image loads) */
+.skeleton-placeholder {
+    -fx-fill: linear-gradient(to right, rgba(60,60,60,0.6), rgba(80,80,80,0.6));
+    -fx-arc-width: 8;
+    -fx-arc-height: 8;
+}
+
+/* Card title */
+.card-title { -fx-text-fill: white; -fx-font-weight: 700; -fx-font-size: 13px; }
+
+/* Add button */
+.button.add-btn { -fx-background-color: #FFA500; -fx-text-fill: black; -fx-background-radius: 6; -fx-padding: 6 10; }
+.button.add-btn:hover { -fx-opacity: 0.95; } .button.add-btn:pressed { -fx-opacity: 0.85; -fx-translate-y: 1; }
+
+/* Genre chips */
+.button.genre-chip {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-text-fill: rgba(255,255,255,0.85);
+    -fx-background-radius: 6;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+}
+.button.genre-chip:hover { -fx-background-color: rgba(255,255,255,0.06); -fx-scale-x: 1.01; -fx-scale-y: 1.01; }
+.button.genre-chip:pressed { -fx-background-color: rgba(255,255,255,0.12); -fx-translate-y: 1; -fx-opacity: 0.95; }
+
+/* Hide native scrollbars for the horizontal row */
+.scroll-pane .scroll-bar:horizontal { -fx-opacity: 0; -fx-max-height: 0; -fx-min-height: 0; }
+.scroll-pane, .scroll-pane .viewport { -fx-background-color: transparent; -fx-background: transparent; }
+
+/* Thin custom indicator */
+#rowIndicator, #personalizedIndicator {
+    -fx-fill: linear-gradient(#d4d4d4, #bdbdbd);
+    -fx-arc-width: 6; -fx-arc-height: 6;
+    -fx-opacity: 0.95;
+}
+
+/* Chevron styles */
+.button.chev {
+    -fx-background-color: rgba(0,0,0,0.55);
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-background-radius: 999;
+    -fx-padding: 6 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 8,0,0,2);
+}
+.button.chev:hover { -fx-background-color: rgba(0,0,0,0.75); -fx-scale-x: 1.04; -fx-scale-y: 1.04; }
+.button.chev:pressed { -fx-translate-y: 1; -fx-opacity: 0.9; }
+
+/* Footer */
+.footer-text { -fx-text-fill: rgba(255,255,255,0.6); -fx-font-size: 12px; }
