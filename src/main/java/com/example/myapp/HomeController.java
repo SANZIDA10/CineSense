@@ -12,20 +12,15 @@ import java.io.IOException;
 
 public class HomeController {
 
-    @FXML
-    private Button userBtn;
-
-    @FXML
-    private Button moderatorBtn;
-
-    @FXML
-    private Label selectedRoleLabel;
+    @FXML private Button userBtn;
+    @FXML private Button moderatorBtn;
+    @FXML private Label selectedRoleLabel;
 
     private String selectedRole = null;
 
     @FXML
     public void initialize() {
-        // Set initial state - both buttons have border style
+        // Set initial border styles for buttons
         setButtonBorderStyle(userBtn);
         setButtonBorderStyle(moderatorBtn);
     }
@@ -34,6 +29,7 @@ public class HomeController {
     private void onSelectUser(ActionEvent event) {
         selectedRole = "user";
         selectedRoleLabel.setText("✓ User role selected");
+        selectedRoleLabel.setStyle("-fx-text-fill:#4caf50;");
         updateButtonStyles();
     }
 
@@ -41,6 +37,7 @@ public class HomeController {
     private void onSelectModerator(ActionEvent event) {
         selectedRole = "moderator";
         selectedRoleLabel.setText("✓ Moderator role selected");
+        selectedRoleLabel.setStyle("-fx-text-fill:#4caf50;");
         updateButtonStyles();
     }
 
@@ -52,28 +49,39 @@ public class HomeController {
             return;
         }
 
-        String fxmlName = selectedRole.equals("moderator") ? "Moderator.fxml" : "UserPage.fxml";
-        navigateToPage(fxmlName, event);
+        // Determine which FXML to load - moderator goes to login first
+        String fxmlFile = selectedRole.equals("moderator") ? "Login.fxml" : "UserPage.fxml";
+
+        // Load the FXML
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Scene scene = new Scene(loader.load(), 1280, 900); // set preferred width & height
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
+
+        // Get current stage and set new scene
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void setButtonBorderStyle(Button button) {
         button.setStyle("-fx-background-color: transparent; " +
-                       "-fx-border-color: #ffb347; " +
-                       "-fx-border-width: 2; " +
-                       "-fx-text-fill: #ffb347; " +
-                       "-fx-font-weight: 800; " +
-                       "-fx-padding: 10 20; " +
-                       "-fx-background-radius: 8; " +
-                       "-fx-border-radius: 8;");
+                "-fx-border-color: #ffb347; " +
+                "-fx-border-width: 2; " +
+                "-fx-text-fill: #ffb347; " +
+                "-fx-font-weight: 800; " +
+                "-fx-padding: 10 20; " +
+                "-fx-background-radius: 8; " +
+                "-fx-border-radius: 8;");
     }
 
     private void setButtonSelectedStyle(Button button) {
         button.setStyle("-fx-background-color: linear-gradient(#ffb347, #ff9800); " +
-                       "-fx-text-fill: black; " +
-                       "-fx-font-weight: 800; " +
-                       "-fx-padding: 12 22; " +
-                       "-fx-background-radius: 8; " +
-                       "-fx-border-width: 0;");
+                "-fx-text-fill: black; " +
+                "-fx-font-weight: 800; " +
+                "-fx-padding: 12 22; " +
+                "-fx-background-radius: 8; " +
+                "-fx-border-width: 0;");
     }
 
     private void updateButtonStyles() {
@@ -84,15 +92,5 @@ public class HomeController {
             setButtonSelectedStyle(moderatorBtn);
             setButtonBorderStyle(userBtn);
         }
-    }
-
-    private void navigateToPage(String fxmlName, ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlName));
-        Scene scene = new Scene(loader.load(), 1280, 900);
-        scene.getStylesheets().add(getClass().getResource("Style.CSS").toExternalForm());
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }
