@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="720" prefWidth="1024" stylesheets="@Style.CSS" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myapp.MainPageController">
+
+    <!-- Background -->
+    <Pane styleClass="page-bg" BorderPane.alignment="CENTER" />
+
+    <!-- Top Navbar -->
+    <top>
+        <HBox prefHeight="0.0" prefWidth="1024.0" spacing="18" style="-fx-padding:14 32; -fx-alignment:center-left;">
+            <Label styleClass="nav-brand" text="CineSense" />
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox spacing="14">
+                <Button onAction="#onNavHome" styleClass="nav-item" text="Home" />
+                <Button onAction="#onNavMoodPicks" styleClass="nav-item" text="Mood Picks" />
+                <Button onAction="#onNavGenres" styleClass="nav-item" text="Genres" />
+                <Button onAction="#onNavMyList" styleClass="nav-item" text="My List" />
+                <Button onAction="#onNavAbout" styleClass="nav-item" text="About" />
+            </HBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <StackPane styleClass="search-box">
+                <TextField promptText="Search Movies..." styleClass="top-search" />
+            </StackPane>
+        </HBox>
+    </top>
+
+    <!-- Center content -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <VBox spacing="24" style="-fx-padding:18 32 36 32; -fx-alignment:center-left;">
+
+                <!-- Recommended for You -->
+                <VBox spacing="8">
+                    <Label styleClass="section-title" text="Recommended for you" />
+                    <ScrollPane hbarPolicy="ALWAYS" pannable="true" prefHeight="180" vbarPolicy="NEVER">
+                        <HBox spacing="16" style="-fx-padding:12;">
+                            <Button styleClass="movie-card" text="Movie 1" />
+                            <Button styleClass="movie-card" text="Movie 2" />
+                            <Button styleClass="movie-card" text="Movie 3" />
+                            <Button styleClass="movie-card" text="Movie 4" />
+                            <Button styleClass="movie-card" text="Movie 5" />
+                        </HBox>
+                    </ScrollPane>
+                </VBox>
+
+                <!-- Top Picks for You -->
+                <VBox spacing="8">
+                    <Label styleClass="section-title" text="Top Picks for You" />
+                    <ScrollPane hbarPolicy="ALWAYS" pannable="true" prefHeight="180" vbarPolicy="NEVER">
+                        <HBox spacing="16" style="-fx-padding:12;">
+                            <Button styleClass="movie-card" text="Movie A" />
+                            <Button styleClass="movie-card" text="Movie B" />
+                            <Button styleClass="movie-card" text="Movie C" />
+                            <Button styleClass="movie-card" text="Movie D" />
+                            <Button styleClass="movie-card" text="Movie E" />
+                        </HBox>
+                    </ScrollPane>
+                </VBox>
+
+                <!-- Trending -->
+                <VBox spacing="8">
+                    <Label styleClass="section-title" text="Trending" />
+                    <ScrollPane hbarPolicy="ALWAYS" pannable="true" prefHeight="299.0" prefWidth="945.0" vbarPolicy="NEVER">
+                        <HBox spacing="16" style="-fx-padding:12;">
+                            <Button styleClass="movie-card" text="Trending 1" />
+                            <Button styleClass="movie-card" text="Trending 2" />
+                            <Button styleClass="movie-card" text="Trending 3" />
+                            <Button styleClass="movie-card" text="Trending 4" />
+                            <Button styleClass="movie-card" text="Trending 5" />
+                        </HBox>
+                    </ScrollPane>
+                </VBox>
+
+                <!-- Genres -->
+                <VBox spacing="8">
+                    <Label styleClass="section-title" text="Browse by Genre" />
+                    <HBox spacing="12">
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Action" />
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Comedy" />
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Drama" />
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Horror" />
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Sci-Fi" />
+                        <Button onAction="#onGenreAction" styleClass="genre-chip" text="Thriller" />
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1024.0" style="-fx-padding: 12 24;">
+            <Label styleClass="footer-text" text="© 2025 CineSense — All Rights Reserved" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

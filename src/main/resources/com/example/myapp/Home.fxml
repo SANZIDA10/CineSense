@@ -1,0 +1,28 @@
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.myapp.HomeController">
+
+    <Pane styleClass="page-bg"/>
+
+    <VBox spacing="24" style="-fx-alignment:center;">
+        <Label text="Find the Perfect Movie for Your Mood" styleClass="hero-heading"/>
+        <Label text="Personalized recommendations based on how you feel right now." styleClass="hero-sub"/>
+        
+        <VBox spacing="16" style="-fx-alignment:center;">
+            <Label text="Select Your Role:" style="-fx-font-size:16; -fx-text-fill:#ffffff; -fx-font-weight:bold;"/>
+            <HBox spacing="20" style="-fx-alignment:center;">
+                <Button fx:id="userBtn" text="User" styleClass="btn-primary" onAction="#onSelectUser"/>
+                <Button fx:id="moderatorBtn" text="Moderator" styleClass="btn-primary" onAction="#onSelectModerator"/>
+            </HBox>
+            <Label fx:id="selectedRoleLabel" text="No role selected" style="-fx-font-size:12; -fx-text-fill:#ffb74d;"/>
+        </VBox>
+        
+        <Button text="Get Started" styleClass="btn-primary" onAction="#onGetStarted"/>
+    </VBox>
+
+</StackPane>
