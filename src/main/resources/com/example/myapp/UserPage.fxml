@@ -10,6 +10,7 @@
         <HBox spacing="18" style="-fx-padding:14 32; -fx-alignment:center-left; -fx-background-color: rgba(26,26,46,0.95);">
             <Label styleClass="nav-brand" text="🎬 CineSense - Your Movie Mood Matcher" />
             <Region HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchField" promptText="Search movies..." styleClass="top-search" onKeyReleased="#onSearch" style="-fx-background-color: rgba(255,255,255,0.15); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.6); -fx-background-radius: 6; -fx-padding: 8 12; -fx-font-size: 14px; -fx-pref-width: 250px;" />
             <Button fx:id="previewToggleBtn" onAction="#onTogglePreview" styleClass="nav-item" text="Preview" visible="false" />
             <Button onAction="#onBack" styleClass="nav-item" text="← Back" />
         </HBox>

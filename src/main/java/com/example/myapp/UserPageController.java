@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -16,6 +17,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class UserPageController {
+
+    // Search field
+    @FXML private TextField searchField;
 
     // Mood selection section
     @FXML private HBox moodButtonsBox;
@@ -659,6 +663,75 @@ public class UserPageController {
             Scene scene = new Scene(content, 300, 150);
             popup.setScene(scene);
             popup.show();
+        }
+    }
+
+    // Search functionality
+    @FXML
+    private void onSearch() {
+        String searchTerm = searchField.getText().trim().toLowerCase();
+        
+        if (searchTerm.isEmpty()) {
+            // If search is empty, reload all movies
+            loadAllMovies();
+            return;
+        }
+        
+        // Clear current movies display
+        allMoviesSection.getChildren().clear();
+        
+        // Search through all movies
+        ObservableList<Movie> allMovies = MovieRepository.getAllMovies();
+        java.util.List<Movie> searchResults = new java.util.ArrayList<>();
+        
+        for (Movie movie : allMovies) {
+            // Search in title, genre, mood, and description
+            boolean matches = false;
+            if (movie.getTitle() != null && movie.getTitle().toLowerCase().contains(searchTerm)) {
+                matches = true;
+            } else if (movie.getGenre() != null && movie.getGenre().toLowerCase().contains(searchTerm)) {
+                matches = true;
+            } else if (movie.getMood() != null && movie.getMood().toLowerCase().contains(searchTerm)) {
+                matches = true;
+            } else if (movie.getDescription() != null && movie.getDescription().toLowerCase().contains(searchTerm)) {
+                matches = true;
+            }
+            
+            if (matches) {
+                searchResults.add(movie);
+            }
+        }
+        
+        // Display search results
+        if (searchResults.isEmpty()) {
+            Label noResults = new Label("No movies found matching \"" + searchTerm + "\"");
+            noResults.setStyle("-fx-text-fill: rgba(255,255,255,0.7); -fx-font-size: 16px; -fx-padding: 20;");
+            allMoviesSection.getChildren().add(noResults);
+        } else {
+            Label resultsLabel = new Label("Search Results for \"" + searchTerm + "\" (" + searchResults.size() + " found)");
+            resultsLabel.setStyle("-fx-text-fill: #ffb347; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 12;");
+            
+            ScrollPane scrollPane = new ScrollPane();
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+            scrollPane.setFitToHeight(true);
+            scrollPane.setStyle("-fx-background: transparent; -fx-background-color: transparent;");
+            
+            HBox resultsRow = new HBox(16);
+            resultsRow.setStyle("-fx-padding: 8;");
+            
+            for (Movie movie : searchResults) {
+                VBox movieCard = createMoviePosterCard(movie);
+                resultsRow.getChildren().add(movieCard);
+            }
+            
+            scrollPane.setContent(resultsRow);
+            
+            VBox searchSection = new VBox(12);
+            searchSection.setStyle("-fx-padding: 12; -fx-background-color: rgba(255,255,255,0.02); -fx-background-radius: 8;");
+            searchSection.getChildren().addAll(resultsLabel, scrollPane);
+            
+            allMoviesSection.getChildren().add(searchSection);
         }
     }
 
