@@ -24,6 +24,7 @@ public class Main extends Application {
 
         stage.setTitle("CineSense - Moderator Panel");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

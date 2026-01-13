@@ -139,8 +139,10 @@ public class ModeratorController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Home.fxml"));
-            Scene scene = new Scene(loader.load(), 1280, 900);
+            
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+            scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -149,10 +151,10 @@ public class ModeratorController {
 
     @FXML    private void onLogout(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-        Scene scene = new Scene(loader.load(), 1280, 900);
-        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
-
+        
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

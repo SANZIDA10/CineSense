@@ -55,11 +55,13 @@ public class HomeController {
         // Load the FXML
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxmlFile));
-        Scene scene = new Scene(loader.load(), 1280, 900); // set preferred width & height
+        
+        // Get current stage and preserve its size
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 
-        // Get current stage and set new scene
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Set new scene
         stage.setScene(scene);
         stage.show();
     }

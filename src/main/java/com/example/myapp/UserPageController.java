@@ -652,10 +652,10 @@ public class UserPageController {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
                     getClass().getResource("Home.fxml")
             );
-            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
+            javafx.stage.Stage stage = (javafx.stage.Stage) previewToggleBtn.getScene().getWindow();
+            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load(), stage.getWidth(), stage.getHeight());
             scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 
-            javafx.stage.Stage stage = (javafx.stage.Stage) previewToggleBtn.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

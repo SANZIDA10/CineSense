@@ -41,10 +41,10 @@ public class LoginController {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("Moderator.fxml"));
-                Scene scene = new Scene(loader.load(), 1280, 900);
-                scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
-
+                
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+                scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
@@ -63,10 +63,10 @@ public class LoginController {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Home.fxml"));
-            Scene scene = new Scene(loader.load(), 1280, 900);
-            scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
-
+            
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+            scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

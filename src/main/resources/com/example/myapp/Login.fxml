@@ -38,13 +38,6 @@
                     <Button text="Login →" onAction="#onLogin" style="-fx-background-color: linear-gradient(#ffb347, #ff9800); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 12 40; -fx-background-radius: 8; -fx-font-size: 14px; -fx-cursor: hand;" />
                 </HBox>
                 
-                <!-- Hint -->
-                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
-                    <Label text="💡 Demo Credentials" style="-fx-text-fill: rgba(255,179,71,0.6); -fx-font-size: 11px; -fx-font-style: italic;" />
-                    <Label text="Email: sanzidajerin28@gmail.com" style="-fx-text-fill: rgba(255,255,255,0.5); -fx-font-size: 11px; -fx-font-style: italic;" />
-                    <Label text="Password: 1122" style="-fx-text-fill: rgba(255,255,255,0.5); -fx-font-size: 11px; -fx-font-style: italic;" />
-                </VBox>
-                
             </VBox>
             
         </VBox>

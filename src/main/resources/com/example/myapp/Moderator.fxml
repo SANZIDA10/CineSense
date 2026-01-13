@@ -10,7 +10,7 @@
         <HBox spacing="18" style="-fx-padding:14 32; -fx-alignment:center-left; -fx-background-color: rgba(26,26,46,0.95);">
             <Label styleClass="nav-brand" text="🎬 CineSense - Moderator Panel" />
             <Region HBox.hgrow="ALWAYS" />
-            <Button onAction="#onBack" styleClass="nav-item" text="← Back" />
+            <Button onAction="#onBack" styleClass="nav-item" text="Logout" />
         </HBox>
     </top>
 
