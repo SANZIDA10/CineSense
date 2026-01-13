@@ -205,6 +205,23 @@ public class UserPageController {
                 createDetailRow("Description:", safe(movie.getDescription(), "No description available."))
         );
 
+        // IMDB Link (if available)
+        if (movie.getImdbLink() != null && !movie.getImdbLink().trim().isEmpty()) {
+            javafx.scene.control.Hyperlink imdbLink = new javafx.scene.control.Hyperlink("🎬 View on IMDB");
+            imdbLink.setStyle("-fx-text-fill: #ffb347; -fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true;");
+            imdbLink.setOnAction(e -> {
+                try {
+                    java.awt.Desktop.getDesktop().browse(new java.net.URI(movie.getImdbLink()));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+            VBox linkBox = new VBox(imdbLink);
+            linkBox.setAlignment(Pos.CENTER);
+            linkBox.setStyle("-fx-padding: 10 0;");
+            content.getChildren().add(linkBox);
+        }
+
         // Buttons
         HBox buttonBox = new HBox(15);
         buttonBox.setAlignment(Pos.CENTER);

@@ -43,9 +43,14 @@ public class LoginController {
                 loader.setLocation(getClass().getResource("Moderator.fxml"));
                 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+                boolean wasMaximized = stage.isMaximized();
+                
+                Scene scene = new Scene(loader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
                 scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
                 stage.setScene(scene);
+                if (wasMaximized) {
+                    stage.setMaximized(true);
+                }
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -65,9 +70,14 @@ public class LoginController {
             loader.setLocation(getClass().getResource("Home.fxml"));
             
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+            boolean wasMaximized = stage.isMaximized();
+            
+            Scene scene = new Scene(loader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
             scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
             stage.setScene(scene);
+            if (wasMaximized) {
+                stage.setMaximized(true);
+            }
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

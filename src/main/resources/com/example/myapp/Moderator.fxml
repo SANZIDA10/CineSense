@@ -53,6 +53,12 @@
                         <TextField fx:id="posterUrlField" promptText="Enter poster image URL (e.g., https://example.com/poster.jpg)" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
                     </VBox>
 
+                    <!-- Row 3.5: IMDB Link -->
+                    <VBox spacing="8">
+                        <Label text="IMDB Page Link" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                        <TextField fx:id="imdbLinkField" promptText="Enter IMDB URL (e.g., https://www.imdb.com/title/tt1234567/)" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
+                    </VBox>
+
                     <!-- Row 4: Description -->
                     <VBox spacing="8">
                         <Label text="Description" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
@@ -79,10 +85,11 @@
                     <Label text="📚 Movies Library" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
                     <TableView fx:id="moviesTable" prefHeight="400" style="-fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 8;">
                         <columns>
-                            <TableColumn prefWidth="200" text="Title" />
-                            <TableColumn prefWidth="120" text="Genre" />
-                            <TableColumn prefWidth="120" text="Mood" />
-                            <TableColumn prefWidth="300" text="Description" />
+                            <TableColumn prefWidth="180" text="Title" />
+                            <TableColumn prefWidth="100" text="Genre" />
+                            <TableColumn prefWidth="100" text="Mood" />
+                            <TableColumn prefWidth="250" text="Description" />
+                            <TableColumn prefWidth="200" text="IMDB Link" />
                             <TableColumn prefWidth="100" text="Action" />
                         </columns>
                     </TableView>

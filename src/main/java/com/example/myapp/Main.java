@@ -22,7 +22,7 @@ public class Main extends Application {
                 getClass().getResource("Style.css").toExternalForm()
         );
 
-        stage.setTitle("CineSense - Moderator Panel");
+        stage.setTitle("CineSense - Movie Recommendation App");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

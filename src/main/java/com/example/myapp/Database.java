@@ -2,6 +2,7 @@ package com.example.myapp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Database {
@@ -22,7 +23,8 @@ public class Database {
                 description TEXT,
                 poster_url TEXT,
                 rating TEXT,
-                review TEXT
+                review TEXT,
+                imdb_link TEXT
             );
         """;
 
@@ -42,6 +44,19 @@ public class Database {
 
             stmt.execute(createMoviesTable);
             stmt.execute(createUserReviewsTable);
+            
+            // Migration: Add imdb_link column if it doesn't exist
+            try {
+                stmt.execute("ALTER TABLE movies ADD COLUMN imdb_link TEXT");
+                System.out.println("✅ Successfully added imdb_link column to movies table");
+            } catch (Exception e) {
+                // Column already exists or other error
+                if (e.getMessage() != null && e.getMessage().contains("duplicate column")) {
+                    System.out.println("ℹ️ imdb_link column already exists");
+                } else {
+                    System.err.println("⚠️ Migration note: " + e.getMessage());
+                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

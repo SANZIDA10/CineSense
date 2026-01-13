@@ -8,8 +8,8 @@ public class MovieRepository {
 
     public static void addMovie(Movie m) {
         String sql = """
-            INSERT INTO movies(title,genre,mood,description,poster_url,rating,review)
-            VALUES(?,?,?,?,?,?,?)
+            INSERT INTO movies(title,genre,mood,description,poster_url,rating,review,imdb_link)
+            VALUES(?,?,?,?,?,?,?,?)
         """;
 
         try (Connection c = Database.connect();
@@ -22,6 +22,7 @@ public class MovieRepository {
             ps.setString(5, m.getPosterUrl());
             ps.setString(6, m.getRating());
             ps.setString(7, m.getReview());
+            ps.setString(8, m.getImdbLink());
             ps.executeUpdate();
 
         } catch (Exception e) {
@@ -112,7 +113,8 @@ public class MovieRepository {
                 rs.getString("description"),
                 rs.getString("poster_url"),
                 rs.getString("rating"),
-                rs.getString("review")
+                rs.getString("review"),
+                rs.getString("imdb_link")
         );
     }
 

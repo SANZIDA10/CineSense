@@ -56,13 +56,18 @@ public class HomeController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxmlFile));
         
-        // Get current stage and preserve its size
+        // Get current stage and preserve maximized state
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+        boolean wasMaximized = stage.isMaximized();
+        
+        Scene scene = new Scene(loader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 
-        // Set new scene
+        // Set new scene and restore maximized state
         stage.setScene(scene);
+        if (wasMaximized) {
+            stage.setMaximized(true);
+        }
         stage.show();
     }
 

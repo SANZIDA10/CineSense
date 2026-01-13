@@ -35,13 +35,16 @@ public class ModeratorController {
     private TextArea reviewField;
 
     @FXML
+    private TextField imdbLinkField;
+
+    @FXML
     private TableView<Movie> moviesTable;
 
     @FXML
     private Label statusLabel;
 
     private static final String[] GENRES = {"Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Thriller", "Romance", "Animation"};
-    private static final String[] MOODS = {"Happy", "Sad", "Thrilled", "Scared", "Relaxed", "Inspired", "Angry"};
+    private static final String[] MOODS = {"Happy", "Sad", "Thrilled", "Scared", "Relaxed", "Inspired", "Angry", "Excited"};
 
     @FXML
     public void initialize() {
@@ -73,8 +76,12 @@ public class ModeratorController {
         TableColumn<Movie, String> descriptionColumn = (TableColumn<Movie, String>) moviesTable.getColumns().get(3);
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
 
+        // IMDB Link column
+        TableColumn<Movie, String> imdbColumn = (TableColumn<Movie, String>) moviesTable.getColumns().get(4);
+        imdbColumn.setCellValueFactory(new PropertyValueFactory<>("imdbLink"));
+
         // Action column
-        TableColumn<Movie, Movie> actionColumn = (TableColumn<Movie, Movie>) moviesTable.getColumns().get(4);
+        TableColumn<Movie, Movie> actionColumn = (TableColumn<Movie, Movie>) moviesTable.getColumns().get(5);
         actionColumn.setCellFactory(col -> new TableCell<Movie, Movie>() {
             private final Button deleteBtn = new Button("Delete");
 
@@ -108,6 +115,7 @@ public class ModeratorController {
         String posterUrl = posterUrlField.getText().trim();
         String rating = ratingField.getText().trim();
         String review = reviewField.getText().trim();
+        String imdbLink = imdbLinkField.getText().trim();
 
         if (title.isEmpty() || genre == null || mood == null) {
             statusLabel.setText("❌ Title, Genre, and Mood are required!");
@@ -115,7 +123,7 @@ public class ModeratorController {
             return;
         }
 
-        Movie movie = new Movie(0, title, genre, mood, description, posterUrl, rating, review);
+        Movie movie = new Movie(0, title, genre, mood, description, posterUrl, rating, review, imdbLink);
         MovieRepository.addMovie(movie);
 
         // Clear fields
@@ -126,6 +134,7 @@ public class ModeratorController {
         posterUrlField.clear();
         ratingField.clear();
         reviewField.clear();
+        imdbLinkField.clear();
 
         // Show success message
         statusLabel.setText("✅ Movie added successfully!");
@@ -141,9 +150,15 @@ public class ModeratorController {
             loader.setLocation(getClass().getResource("Home.fxml"));
             
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+            boolean wasMaximized = stage.isMaximized();
+            
+            Scene scene = new Scene(loader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
             scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
             stage.setScene(scene);
+            if (wasMaximized) {
+                stage.setMaximized(true);
+            }
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -153,9 +168,14 @@ public class ModeratorController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
         
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(loader.load(), stage.getWidth(), stage.getHeight());
+        boolean wasMaximized = stage.isMaximized();
+        
+        Scene scene = new Scene(loader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
         scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stage.setScene(scene);
+        if (wasMaximized) {
+            stage.setMaximized(true);
+        }
         stage.show();
     }
 }
