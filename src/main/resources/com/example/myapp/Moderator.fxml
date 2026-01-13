@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="900" prefWidth="1280" stylesheets="@Style.CSS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myapp.ModeratorController">
+<BorderPane prefHeight="900" prefWidth="1280" stylesheets="@Style.CSS" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myapp.ModeratorController">
 
     <!-- Top Navbar -->
     <top>
@@ -16,21 +16,21 @@
 
     <!-- Center content -->
     <center>
-        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);">
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);" vbarPolicy="AS_NEEDED">
             <VBox spacing="32" style="-fx-padding:24 48 48 48;">
 
                 <!-- Add Movie Section -->
                 <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 12; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 12; -fx-border-width: 2;">
-                    <Label text="➕ Add New Movie" style="-fx-text-fill: #ffb347; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                    <Label style="-fx-text-fill: #ffb347; -fx-font-size: 24px; -fx-font-weight: bold;" text="➕ Add New Movie" />
 
                     <!-- Row 1: Title and Genre -->
                     <HBox spacing="20">
                         <VBox spacing="8" HBox.hgrow="ALWAYS">
-                            <Label text="Movie Title *" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                            <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Movie Title *" />
                             <TextField fx:id="titleField" promptText="Enter movie title" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
                         </VBox>
                         <VBox spacing="8" HBox.hgrow="ALWAYS">
-                            <Label text="Genre *" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                            <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Genre *" />
                             <ComboBox fx:id="genreCombo" promptText="Select genre" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-pref-width: 400; -fx-font-size: 13px;" />
                         </VBox>
                     </HBox>
@@ -38,51 +38,51 @@
                     <!-- Row 2: Mood and Rating -->
                     <HBox spacing="20">
                         <VBox spacing="8" HBox.hgrow="ALWAYS">
-                            <Label text="Mood *" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                            <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Mood *" />
                             <ComboBox fx:id="moodCombo" promptText="Select mood" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-pref-width: 400; -fx-font-size: 13px;" />
                         </VBox>
                         <VBox spacing="8" HBox.hgrow="ALWAYS">
-                            <Label text="Rating (e.g., 4.5:10)" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
-                            <TextField fx:id="ratingField" promptText="Enter rating in format 4.5:10 or leave empty" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
+                            <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Rating (e.g., 4.5:5)" />
+                            <TextField fx:id="ratingField" promptText="Enter rating in format 4.5:5 or leave empty" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
                         </VBox>
                     </HBox>
 
                     <!-- Row 3: Poster URL -->
                     <VBox spacing="8">
-                        <Label text="Poster URL" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                        <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Poster URL" />
                         <TextField fx:id="posterUrlField" promptText="Enter poster image URL (e.g., https://example.com/poster.jpg)" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
                     </VBox>
 
                     <!-- Row 3.5: IMDB Link -->
                     <VBox spacing="8">
-                        <Label text="IMDB Page Link" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
+                        <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="IMDB Page Link" />
                         <TextField fx:id="imdbLinkField" promptText="Enter IMDB URL (e.g., https://www.imdb.com/title/tt1234567/)" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1;" />
                     </VBox>
 
                     <!-- Row 4: Description -->
                     <VBox spacing="8">
-                        <Label text="Description" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
-                        <TextArea fx:id="descriptionField" promptText="Enter movie description" wrapText="true" prefRowCount="2" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1; -fx-control-inner-background: rgba(255,255,255,0.1);" />
+                        <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Description" />
+                        <TextArea fx:id="descriptionField" prefRowCount="2" promptText="Enter movie description" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1; -fx-control-inner-background: rgba(255,255,255,0.1);" wrapText="true" />
                     </VBox>
 
                     <!-- Row 5: Review -->
                     <VBox spacing="8">
-                        <Label text="Official Review" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" />
-                        <TextArea fx:id="reviewField" promptText="Enter official movie review" wrapText="true" prefRowCount="3" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1; -fx-control-inner-background: rgba(255,255,255,0.1);" />
+                        <Label style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 13px;" text="Official Review" />
+                        <TextArea fx:id="reviewField" prefRowCount="3" promptText="Enter official movie review" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 10; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 6; -fx-border-width: 1; -fx-control-inner-background: rgba(255,255,255,0.1);" wrapText="true" />
                     </VBox>
 
                     <!-- Submit Button and Status -->
-                    <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;">
-                        <Button onAction="#onAddMovie" text="➕ Add Movie" style="-fx-background-color: linear-gradient(#ffb347, #ff9800); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 12 30; -fx-background-radius: 8; -fx-font-size: 14px; -fx-cursor: hand;" />
-                        <Label fx:id="statusLabel" text="" style="-fx-font-size: 13px; -fx-font-weight: bold;" />
+                    <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 10 0 0 0;">
+                        <Button onAction="#onAddMovie" style="-fx-background-color: linear-gradient(#ffb347, #ff9800); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 12 30; -fx-background-radius: 8; -fx-font-size: 14px; -fx-cursor: hand;" text="➕ Add Movie" />
+                        <Label fx:id="statusLabel" style="-fx-font-size: 13px; -fx-font-weight: bold;" text="" />
                     </HBox>
                     
-                    <Label text="* Required fields" style="-fx-text-fill: rgba(255,179,71,0.6); -fx-font-size: 11px; -fx-font-style: italic;" />
+                    <Label style="-fx-text-fill: rgba(255,179,71,0.6); -fx-font-size: 11px; -fx-font-style: italic;" text="* Required fields" />
                 </VBox>
 
                 <!-- Movies Library Section -->
                 <VBox spacing="16">
-                    <Label text="📚 Movies Library" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                    <Label style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" text="📚 Movies Library" />
                     <TableView fx:id="moviesTable" prefHeight="400" style="-fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 8;">
                         <columns>
                             <TableColumn prefWidth="180" text="Title" />
