@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="900" prefWidth="1280" stylesheets="@Style.CSS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myapp.UserPageController">
+
+    <!-- Top Navbar -->
+    <top>
+        <HBox spacing="18" style="-fx-padding:14 32; -fx-alignment:center-left; -fx-background-color: rgba(26,26,46,0.95);">
+            <Label styleClass="nav-brand" text="🎬 CineSense - Your Movie Mood Matcher" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="previewToggleBtn" onAction="#onTogglePreview" styleClass="nav-item" text="Preview" visible="false" />
+            <Button onAction="#onBack" styleClass="nav-item" text="← Back" />
+        </HBox>
+    </top>
+
+    <!-- Center content -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);">
+            <VBox spacing="32" style="-fx-padding:24 48 48 48;">
+
+                <!-- Mood Selection Section -->
+                <VBox spacing="16" style="-fx-padding: 24; -fx-background-color: rgba(255,255,255,0.03); -fx-background-radius: 12; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 12; -fx-border-width: 1;">
+                    <Label text="🎭 How are you feeling?" style="-fx-text-fill: #ffb347; -fx-font-size: 24px; -fx-font-weight: bold;" />
+                    <Label text="Select your mood to discover movies that match your vibe" style="-fx-text-fill: rgba(255,255,255,0.7); -fx-font-size: 14px;" />
+                    
+                    <HBox fx:id="moodButtonsBox" spacing="12" style="-fx-padding: 12 0 0 0; -fx-wrap-text:true;" />
+                </VBox>
+
+                <!-- Mood-based Movies Section -->
+                <VBox spacing="16">
+                    <Label fx:id="selectedMoodLabel" text="✨ Movies For You" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                    
+                    <ScrollPane hbarPolicy="AS_NEEDED" pannable="true" prefHeight="280" vbarPolicy="NEVER" style="-fx-background: transparent; -fx-background-color: transparent;">
+                        <HBox fx:id="moviesBox" spacing="18" style="-fx-padding:12;" />
+                    </ScrollPane>
+                </VBox>
+
+                <!-- Browse All Movies Section -->
+                <VBox fx:id="allMoviesSection" spacing="20">
+                    <Label text="🍿 Browse All Movies by Genre" style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" />
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

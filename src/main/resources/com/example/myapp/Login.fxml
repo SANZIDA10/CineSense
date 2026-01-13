@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="900" prefWidth="1280" stylesheets="@Style.CSS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myapp.LoginController">
+
+    <!-- Center content -->
+    <center>
+        <VBox alignment="CENTER" spacing="30" style="-fx-background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); -fx-padding: 50;">
+            
+            <!-- Login Card -->
+            <VBox alignment="CENTER" spacing="25" style="-fx-padding: 50; -fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 20; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 20; -fx-border-width: 2; -fx-max-width: 500; -fx-min-width: 500;">
+                
+                <!-- Title -->
+                <Label text="🔐 Moderator Login" style="-fx-text-fill: #ffb347; -fx-font-size: 32px; -fx-font-weight: bold;" />
+                
+                <Label text="Enter your credentials to access the moderator panel" style="-fx-text-fill: rgba(255,255,255,0.7); -fx-font-size: 14px;" wrapText="true" alignment="CENTER" />
+                
+                <!-- Email Field -->
+                <VBox spacing="8" style="-fx-pref-width: 400;">
+                    <Label text="Email Address" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 14px;" />
+                    <TextField fx:id="emailField" promptText="Enter your email" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 12; -fx-font-size: 14px; -fx-background-radius: 8; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 8; -fx-border-width: 1;" />
+                </VBox>
+                
+                <!-- Password Field -->
+                <VBox spacing="8" style="-fx-pref-width: 400;">
+                    <Label text="Password" style="-fx-text-fill: #ffb347; -fx-font-weight: bold; -fx-font-size: 14px;" />
+                    <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.5); -fx-padding: 12; -fx-font-size: 14px; -fx-background-radius: 8; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 8; -fx-border-width: 1;" />
+                </VBox>
+                
+                <!-- Error Label -->
+                <Label fx:id="errorLabel" text="" style="-fx-text-fill: #ff4444; -fx-font-size: 13px; -fx-font-weight: bold;" />
+                
+                <!-- Buttons -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="← Back" onAction="#onBack" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 30; -fx-background-radius: 8; -fx-border-color: rgba(255,179,71,0.3); -fx-border-radius: 8; -fx-border-width: 1; -fx-font-size: 14px; -fx-cursor: hand;" />
+                    <Button text="Login →" onAction="#onLogin" style="-fx-background-color: linear-gradient(#ffb347, #ff9800); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 12 40; -fx-background-radius: 8; -fx-font-size: 14px; -fx-cursor: hand;" />
+                </HBox>
+                
+                <!-- Hint -->
+                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+                    <Label text="💡 Demo Credentials" style="-fx-text-fill: rgba(255,179,71,0.6); -fx-font-size: 11px; -fx-font-style: italic;" />
+                    <Label text="Email: sanzidajerin28@gmail.com" style="-fx-text-fill: rgba(255,255,255,0.5); -fx-font-size: 11px; -fx-font-style: italic;" />
+                    <Label text="Password: 1122" style="-fx-text-fill: rgba(255,255,255,0.5); -fx-font-size: 11px; -fx-font-style: italic;" />
+                </VBox>
+                
+            </VBox>
+            
+        </VBox>
+    </center>
+
+</BorderPane>
